@@ -13,7 +13,7 @@ available functions.
 The debugger is extremely helpful in understanding the puppet language and your puppet code.
 Think ruby pry but for puppet code.  
 
-The function will inject the scope, node and environment data into the debugger and will
+The function will inject the scope, node and environment data into the debugger
 allowing you to poke around to see variables, functions, facts, classes, and resources defined in the current scope.
 
 ## Requirements
