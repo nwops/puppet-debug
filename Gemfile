@@ -10,7 +10,7 @@ group :test do
     gem "metadata-json-lint"
     gem 'puppet-syntax'
     gem 'puppet-lint'
-    gem 'puppet-debugger'
+    gem 'puppet-debugger', :git => 'https://github.com/nwops/puppet-debugger'
 end
 
 # to disable installing the 50+ gems this group contains run : bundle install --without integration

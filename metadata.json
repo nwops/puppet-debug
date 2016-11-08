@@ -2,12 +2,12 @@
   "name": "nwops-debug",
   "version": "0.1.0",
   "author": "Corey Osman",
-  "summary": null,
+  "summary": "Used for starting the puppet debugger from inside puppet code",
   "license": "Apache-2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/nwops/puppet-debug",
+  "project_page": "https://github.com/nwops/puppet-debug",
+  "issues_url": "https://github.com/nwops/puppet-debug/issues",
   "dependencies": [
-  ],
-  "data_provider": null
+
+  ]
 }

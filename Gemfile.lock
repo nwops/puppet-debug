@@ -4,6 +4,15 @@ GIT
   specs:
     hiera-puppet-helper (2.0.1)
 
+GIT
+  remote: https://github.com/nwops/puppet-debugger
+  revision: c5b1af8c48d2b5632fadfc8c30aede9ad980cc44
+  specs:
+    puppet-debugger (0.4.0)
+      awesome_print (~> 1.6)
+      facterdb (~> 0.3)
+      puppet (>= 3.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -283,10 +292,6 @@ GEM
     puppet-blacksmith (3.4.0)
       puppet (>= 2.7.16)
       rest-client (~> 1.8.0)
-    puppet-debugger (0.4.0)
-      awesome_print (~> 1.6)
-      facterdb (~> 0.3)
-      puppet (>= 3.8)
     puppet-lint (2.0.2)
     puppet-repl (0.3.4)
       awesome_print (~> 1.6)
@@ -388,7 +393,7 @@ DEPENDENCIES
   metadata-json-lint
   puppet (~> 4.8.0)
   puppet-blacksmith
-  puppet-debugger
+  puppet-debugger!
   puppet-lint
   puppet-repl
   puppet-syntax
