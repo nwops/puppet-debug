@@ -1,7 +1,7 @@
 begin
   require 'puppet-debugger'
-  if ::PuppetDebugger::VERSION >= '0.4.0'
-    Puppet.err('You must install the puppet-debugger gem version >= 0.4.0')
+  if ::PuppetDebugger::VERSION < '0.4.1'
+    Puppet.err('You must install the puppet-debugger gem version >= 0.4.1')
   end
 rescue LoadError => e
   Puppet.err('You must install the puppet-debugger: gem install puppet-debugger')
