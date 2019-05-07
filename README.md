@@ -26,8 +26,8 @@ You will also want to include this module in your fixtures file if using for rsp
 unit testing.
 
 ```
-debugger:
-   repo: https://github.com/nwops/puppet-debugger-module
+debug:
+   repo: https://github.com/nwops/puppet-debug
 ```
 
 ## Usage

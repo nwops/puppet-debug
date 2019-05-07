@@ -1,10 +1,10 @@
 require 'puppetlabs_spec_helper/module_spec_helper'
 require 'rspec-puppet-utils'
 # if your using puppet4, the following gem seems to causes issues
-require 'hiera-puppet-helper'
+#require 'hiera-puppet-helper'
 
 # Uncomment this to show coverage report, also useful for debugging
-#at_exit { RSpec::Puppet::Coverage.report! }
+at_exit { RSpec::Puppet::Coverage.report! }
 
 #set to "yes" to enable the future parser, the equivalent of setting parser=future in puppet.conf.
 #ENV['FUTURE_PARSER'] = 'yes'

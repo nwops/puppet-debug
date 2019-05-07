@@ -3,6 +3,11 @@ class debug::debug_test(
   $var2 = ['value1', 'value2', 'value3']
 )
 {
+  if $var1 == 'failme' {
+    fail('dsafsd')
+    debug::break({'run_once' => true})
+
+  }
   # dummy resources so we can show list of resources
   file{'/tmp/test.txt': ensure => present, mode => '0755'}
   service{'httpd': ensure => running}
