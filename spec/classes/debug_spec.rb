@@ -7,7 +7,7 @@ describe 'debug' do
   # to the specific context in the spec/shared_contexts.rb file
   # Note: you can only use a single hiera context per describe/context block
   # rspec-puppet does not allow you to swap out hiera data on a per test block
-  #include_context :hiera
+  # include_context :hiera
 
   # below is the facts hash that gives you the ability to mock
   # facts on a per describe/context block.  If you use a fact in your
@@ -25,16 +25,14 @@ describe 'debug' do
 
     }
   end
+
   # add these two lines in a single test block to enable puppet and hiera debug mode
   # Puppet::Util::Log.level = :debug
   # Puppet::Util::Log.newdestination(:console)
-  
+
   it do
-    is_expected.to contain_package("puppet-debugger")
-        .with({
-          "ensure" => "present",
-          "provider" => "gem",
-          })
+    is_expected.to contain_package('puppet-debugger')
+      .with('ensure' => 'present',
+            'provider' => 'gem')
   end
-    
 end
