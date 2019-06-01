@@ -1,6 +1,6 @@
 {
   "name": "nwops-debug",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Corey Osman",
   "summary": "Used for starting the puppet debugger from inside puppet code",
   "license": "Apache-2.0",
