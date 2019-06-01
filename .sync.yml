@@ -1,0 +1,10 @@
+# .sync.yml
+---
+.travis.yml:
+  delete: true
+appveyor.yml:
+  delete: true
+Gemfile:
+  required:
+    ":development":
+      - gem: "puppet-debugger"
