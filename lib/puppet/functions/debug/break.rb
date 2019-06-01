@@ -1,12 +1,3 @@
-begin
-  require 'puppet-debugger'
-  if ::PuppetDebugger::VERSION < '0.4.1'
-    Puppet.err('You must install the puppet-debugger gem version >= 0.4.1')
-  end
-rescue LoadError => e
-  Puppet.err('You must install the puppet-debugger: gem install puppet-debugger')
-end
-
 Puppet::Functions.create_function(:'debug::break', Puppet::Functions::InternalFunction) do
   # the function below is called by puppet and and must match
   # the name of the puppet function above.
@@ -22,26 +13,32 @@ Puppet::Functions.create_function(:'debug::break', Puppet::Functions::InternalFu
   end
 
   def break(scope, options = {})
-    if $stdout.isatty
-      options = options.merge({:scope => scope})
-      # forking the process allows us to start a new debugger shell
-      # for each occurrence of the start_debugger function
-      pid = fork do
-        # required in order to use convert puppet hash into ruby hash with symbols
-        options = options.inject({}){|data,(k,v)| data[k.to_sym] = v; data}
-        options[:source_file], options[:source_line] = stacktrace.last
-        # suppress future debugger help screens
+    begin
+      require 'puppet-debugger'      
+      if $stdout.isatty
+        options = options.merge({:scope => scope})
+        # forking the process allows us to start a new debugger shell
+        # for each occurrence of the start_debugger function
+        pid = fork do
+          # required in order to use convert puppet hash into ruby hash with symbols
+          options = options.inject({}){|data,(k,v)| data[k.to_sym] = v; data}
+          options[:source_file], options[:source_line] = stacktrace.last
+          # suppress future debugger help screens
+          @debugger_stack_count = @debugger_stack_count + 1
+          # suppress future debugger help screens since we probably started from the debugger, so look for this string
+          # in the filename to detect
+          @debugger_stack_count = @debugger_stack_count + 1 if options[:source_file] =~ /puppet_debugger_input/
+          options[:quiet] = true if @debugger_stack_count > 1
+          ::PuppetDebugger::Cli.start_without_stdin(options)
+        end
+        Process.wait(pid)
         @debugger_stack_count = @debugger_stack_count + 1
-        # suppress future debugger help screens since we probably started from the debugger, so look for this string
-        # in the filename to detect
-        @debugger_stack_count = @debugger_stack_count + 1 if options[:source_file] =~ /puppet_debugger_input/
-        options[:quiet] = true if @debugger_stack_count > 1
-        ::PuppetDebugger::Cli.start_without_stdin(options)
+      else
+        Puppet.warning 'debug::break(): refusing to start the debugger on a daemonized master'
       end
-      Process.wait(pid)
-      @debugger_stack_count = @debugger_stack_count + 1
-    else
-      Puppet.warning 'debug::breakpoint(): refusing to start the debugger on a daemonized master'
+    rescue LoadError => e
+      Puppet.err(e.message)
+      Puppet.err('You must install the puppet-debugger: gem install puppet-debugger')
     end
   end
 
