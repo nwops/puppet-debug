@@ -9,7 +9,7 @@ group :test do
     gem "metadata-json-lint"
     gem 'puppet-syntax'
     gem 'puppet-lint'
-    gem 'puppet-debugger', :git => 'https://github.com/nwops/puppet-debugger'
+    gem 'puppet-debugger'
     gem 'pry'
 end
 
