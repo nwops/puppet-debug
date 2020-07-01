@@ -7,7 +7,7 @@ describe 'debug::debug_test' do
   # to the specific context in the spec/shared_contexts.rb file
   # Note: you can only use a single hiera context per describe/context block
   # rspec-puppet does not allow you to swap out hiera data on a per test block
-  #include_context :hiera
+  # include_context :hiera
 
   # below is the facts hash that gives you the ability to mock
   # facts on a per describe/context block.  If you use a fact in your
@@ -22,38 +22,35 @@ describe 'debug::debug_test' do
   let(:params) do
     {
       #:var1 => "value1",
-      :var2 => ["value1", "value2", "value3"],
+      var2: ['value1', 'value2', 'value3'],
 
     }
   end
+
   # add these two lines in a single test block to enable puppet and hiera debug mode
   # Puppet::Util::Log.level = :debug
   # Puppet::Util::Log.newdestination(:console)
-  
+
   it do
-    is_expected.to contain_file("/tmp/test.txt")
-        .with({
-          "ensure" => "present",
-          "mode" => "0755",
-          })
+    is_expected.to contain_file('/tmp/test.txt')
+      .with('ensure' => 'present',
+            'mode' => '0755')
   end
-    
+
   it do
-    is_expected.to contain_service("httpd")
-        .with({
-          "ensure" => "running",
-          })
+    is_expected.to contain_service('httpd')
+      .with('ensure' => 'running')
   end
   it do
-    is_expected.to contain_file("/tmp/value1")
-       .with_ensure('present')
+    is_expected.to contain_file('/tmp/value1')
+      .with_ensure('present')
   end
   it do
-    is_expected.to contain_file("/tmp/value2")
-                       .with_ensure('present')
+    is_expected.to contain_file('/tmp/value2')
+      .with_ensure('present')
   end
   it do
-    is_expected.to contain_file("/tmp/value3")
-                       .with_ensure('present')
+    is_expected.to contain_file('/tmp/value3')
+      .with_ensure('present')
   end
 end

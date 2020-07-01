@@ -3,8 +3,7 @@ require 'puppet/pops'
 require 'puppet/loaders'
 
 describe 'debug::break' do
-
-  #it { is_expected.to run.with_params({'run_once' => true}).and_return('') }
+  # it { is_expected.to run.with_params({'run_once' => true}).and_return('') }
 
   # before(:all) do
   #   loaders = Puppet::Pops::Loaders.new(Puppet::Node::Environment.create(:testing, []))
@@ -33,5 +32,4 @@ describe 'debug::break' do
   # it "should call Puppet::Util::Package.versioncmp (included in scope)" do
   #   expect(breakpoint('value')).to eq('something')
   # end
-
 end
