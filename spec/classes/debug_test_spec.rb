@@ -21,7 +21,7 @@ describe 'debug::debug_test' do
   # while all required parameters will require you to add a value
   let(:params) do
     {
-      #:var1 => "value1",
+      # :var1 => "value1",
       var2: ['value1', 'value2', 'value3'],
 
     }

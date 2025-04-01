@@ -8,4 +8,4 @@ Gemfile:
   required:
     ":development":
       - gem: "puppet-debugger"
-        version: "~> 0.19 "
+        version: "~> 1.0"

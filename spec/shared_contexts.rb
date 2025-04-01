@@ -7,9 +7,7 @@ hiera_config_file = File.expand_path(File.join(File.dirname(__FILE__), 'fixtures
 
 shared_context :global_hiera_data do
   let(:hiera_data) do
-    {
-
-    }
+    {}
   end
 end
 
