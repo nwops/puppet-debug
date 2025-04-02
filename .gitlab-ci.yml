@@ -26,19 +26,20 @@ syntax lint metadata_lint check:symlinks check:git_ignore check:dot_underscore c
   variables:
     PUPPET_GEM_VERSION: '~> 6'
 
-parallel_spec-Ruby 2.5.7-Puppet ~> 6:
+parallel_spec-Ruby 2.7.8-Puppet ~> 7:
   stage: unit
-  image: ruby:2.5.7
+  image: ruby:2.7.8
   script:
     - bundle exec rake parallel_spec
   variables:
-    PUPPET_GEM_VERSION: '~> 6'
+    PUPPET_GEM_VERSION: '~> 7'
 
-parallel_spec-Ruby 2.4.5-Puppet ~> 5:
+
+parallel_spec-Ruby 3.2-Puppet ~> 8:
   stage: unit
-  image: ruby:2.4.5
+  image: ruby:3.2.8
   script:
     - bundle exec rake parallel_spec
   variables:
-    PUPPET_GEM_VERSION: '~> 5'
+    PUPPET_GEM_VERSION: '~> 8'
 
