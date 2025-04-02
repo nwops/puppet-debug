@@ -1,6 +1,6 @@
 {
   "name": "nwops-debug",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Corey Osman",
   "summary": "Used for starting the puppet debugger from inside puppet code",
   "license": "Apache-2.0",
@@ -14,19 +14,25 @@
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8",
+        "9"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8",
+        "9"
       ]
     },
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8",
+        "9"
       ]
     },
     {
@@ -44,7 +50,12 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "16.04"
+        "16.04",
+        "18.04",
+        "20.04",
+        "21.04",
+        "22.04",
+        "24.04"
       ]
     },
     {
@@ -52,17 +63,18 @@
       "operatingsystemrelease": [
         "2008 R2",
         "2012 R2",
-        "10"
+        "10",
+        "11"
       ]
     }
   ],
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.10.0 < 7.0.0"
+      "version_requirement": ">= 4.10.0 < 9.0.0"
     }
   ],
-  "pdk-version": "1.18.0",
-  "template-url": "pdk-default#1.18.0",
-  "template-ref": "tags/1.18.0-0-g095317c"
+  "pdk-version": "3.4.0",
+  "template-url": "pdk-default#3.4.0",
+  "template-ref": "tags/3.4.0-0-gd3cc13f"
 }

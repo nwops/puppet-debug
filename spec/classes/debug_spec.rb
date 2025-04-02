@@ -21,7 +21,7 @@ describe 'debug' do
   # while all required parameters will require you to add a value
   let(:params) do
     {
-      #:gem_provider => "gem",
+      # :gem_provider => "gem",
 
     }
   end

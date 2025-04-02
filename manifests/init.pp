@@ -1,8 +1,8 @@
 class debug (
-  $gem_provider = 'gem'
+  String $gem_provider = 'gem'
 
 ) {
-  package{'puppet-debugger':
+  package { 'puppet-debugger':
     ensure   => present,
     provider => $gem_provider,
   }
